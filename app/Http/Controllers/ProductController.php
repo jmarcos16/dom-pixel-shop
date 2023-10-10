@@ -31,7 +31,7 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+    {   
         $validated =  $request->validate([
             'name' => ['required', 'string', 'min:3', 'max:255'],
             'description' => ['string', 'min:3', 'max:255'],
@@ -43,21 +43,16 @@ class ProductController extends Controller
 
         return redirect()->route('products.index');
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Product $product)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Product $product)
     {
-        //
+
+        return view('products.edit', [
+            'product' => $product,
+        ]);
+    
     }
 
     /**
@@ -65,7 +60,19 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        
+        $validated =  $request->validate([
+            'name' => ['required', 'string', 'min:3', 'max:255'],
+            'description' => ['string', 'min:3', 'max:255'],
+            'price' => ['required', 'numeric', 'min:0.01'],
+            'quantity' => ['required', 'numeric', 'min:1'],
+        ]);
+
+        $product->update($validated);
+
+        return redirect()->route('products.index');
+
+
     }
 
     /**
@@ -73,6 +80,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return redirect()->route('products.index');
     }
 }
