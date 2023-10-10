@@ -9,7 +9,7 @@
         <div class="p-4 bg-white rounded-lg shadow sm:p-8">
             <form method="post" action="{{ route('products.update', $product) }}" class="space-y-6">
                 @csrf
-
+                @method('PUT')
                 <div>
                     <x-input-label for="name" :value="__('Name')" />
                     <x-text-input id="name" name="name" type="text" class="block mt-1 lg:w-3/6" required
