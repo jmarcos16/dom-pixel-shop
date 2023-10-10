@@ -8,8 +8,9 @@ Módulo responsavel pelo cadastros dos itens da loja DompixeShop, esse módulo c
 - [Laravel 10+](https://laravel.com/docs/10.x).
 - [Tailwind CSS](https://tailwindcss.com/docs/).
 - [Node 18+](https://nodejs.org/en).
+- [Docker CE 19+](https://docs.docker.com/engine/reference/commandline/system_prune/)
 
-Para instalação desse projeto será necessário ter o PHP, Composer e Node instalado em sua maquina.
+Para instalação desse projeto será necessário ter Docker e o Docker Compose na ultima versão de preferência.
 
 ## Instalação
 
@@ -21,7 +22,7 @@ git clone https://github.com/jmarcos16/dom-pixel-shop.git
 cd dom-pixel-shop
 ```
 ```bash
-cp .env-example .env
+docker compose up -d
 ```
 
 Em seguida acesse o arquivo .env com o seu editor de código preferido e altere o seguinte bloco codigo.
