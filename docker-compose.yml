@@ -1,5 +1,5 @@
 services:
-  app:
+  laravel-app:
     image: laravel-app
     build:
       context: ./docker/laravel-app
@@ -30,7 +30,7 @@ services:
   mysql:
     image: mysql:8.0
     ports:
-      - "3307:3306"
+      - "3306:3306"
     restart: unless-stopped
     networks:
       - laravel
