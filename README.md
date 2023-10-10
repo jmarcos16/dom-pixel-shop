@@ -22,20 +22,24 @@ git clone https://github.com/jmarcos16/dom-pixel-shop.git
 cd dom-pixel-shop
 ```
 ```bash
-docker compose up -d
+cp .env-example .env
 ```
 
-Em seguida acesse o arquivo .env com o seu editor de código preferido e altere o seguinte bloco codigo.
+Em seguida acesse o arquivo .env com o seu editor de código preferido e altere o seguinte bloco codigo, coloque as credencias que vão ser usadas no seu banco de dados.
 
 ```env
-DB_CONNECTION=sqlite
-DB_HOST=127.0.0.1
+DB_CONNECTION=mysql
+DB_HOST=mysql
 DB_PORT=3306
 DB_DATABASE=dom_pixel_shop
-DB_USERNAME=root
-DB_PASSWORD=
+DB_USERNAME=dafault
+DB_PASSWORD=secret
 ```
-O código acima é o responsavel pela conexão com o banco de dados, nesse caso configure com o banco instalado no seu ambiente.
+Em seguida rode o seguinte comando, ele ira buildar as imagens, e subir os container de serviço.
+
+```bash
+docker compose up -d
+```
 
 Em seguida rode rode os seguintes comandos.
 
