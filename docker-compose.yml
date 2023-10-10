@@ -1,12 +1,12 @@
 services:
   app:
-    image: app
+    image: laravel-app
     build:
-      context: ./docker/app
+      context: ./docker/laravel-app
       dockerfile: Dockerfile
       args:
         - USER=${USER}
-    container_name: app
+    container_name: laravel-app
     ports:
       - "9000:9000"
       - "5173:5173"
