@@ -13,7 +13,7 @@ Para instalação desse projeto será necessário ter o PHP, Composer e Node ins
 
 ## Instalação
 
-Para instalação basta rodar os seguintes comandos, uma linha por vez.
+Para instalação basta rodar os seguintes comandos.
 ```bash
 git clone https://github.com/jmarcos16/dom-pixel-shop.git
 ```

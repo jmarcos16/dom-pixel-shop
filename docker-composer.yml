@@ -1,0 +1,47 @@
+services:
+  laravel-app:
+    image: laravel-app
+    build:
+      context: ./docker/laravel-app
+      dockerfile: Dockerfile
+      args:
+        - USER=${USER}
+    container_name: laravel_app
+    ports:
+      - "9000:9000"
+      - "5173:5173"
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./:/var/www
+    networks:
+      - laravel
+  nginx:
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile
+    container_name: nginx
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www
+    depends_on:
+      - laravel-app
+    networks:
+      - laravel
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3307:3306"
+    restart: unless-stopped
+    networks:
+      - laravel
+    environment:
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+networks:
+  laravel:
+    driver: bridge
