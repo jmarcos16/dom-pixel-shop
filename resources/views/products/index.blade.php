@@ -5,7 +5,12 @@
         </h2>
     </x-slot>
     <div class="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="m-5 overflow-hidden border border-gray-200 rounded-lg shadow-md">
+        <div class="flex justify-end mb-5">
+            <a href="{{ route('products.create') }}"
+                class="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-500">Cadastrar
+                Produto</a>
+        </div>
+        <div class="overflow-hidden border border-gray-200 rounded-lg shadow-md">
             <table class="w-full text-sm text-left text-gray-500 bg-white border-collapse">
                 <thead class="bg-gray-50">
                     <tr>
