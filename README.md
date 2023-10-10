@@ -13,10 +13,27 @@ Para instalação desse projeto será necessário ter o PHP, Composer e Node ins
 
 ## Instalação
 
+Para instalação basta rodar os seguintes comandos, uma linha por vez.
 ```bash
 git clone https://github.com/jmarcos16/dom-pixel-shop.git
 
+cd dom-pixel-shop
+
+cp .env-example .env
 ```
+
+Em seguida acesse o arquivo .env com o seu editor de código preferido e altere o seguinte bloco codigo.
+
+```env
+DB_CONNECTION=sqlite
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=dom_pixel_shop
+DB_USERNAME=root
+DB_PASSWORD=
+```
+Esse código acima é o responsavel pela conexão com o banco de dados, nesse caso configure com o banco instalado no seu ambiente.
+
 
 ## License
 
