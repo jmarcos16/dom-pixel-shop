@@ -51,5 +51,17 @@
 
     </div>
 
+    @push('scripts')
+        <script>
+            const price = document.getElementById('price');
+
+            price.addEventListener('keyup', (e) => {
+                price.value = price.value.replace(/\D/g, '');
+                price.value = price.value.replace(/(\d)(\d{2})$/, '$1.$2');
+                price.value = price.value.replace(/(?=(\d{3})+(\D))\B/g, '.');
+            });
+
+        </script>
+    @endpush
 
 </x-app-layout>
